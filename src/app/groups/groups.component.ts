@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Group, GroupsService } from '../shared/groups.service';
+import { Group, GroupsService } from './groups.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
@@ -12,7 +12,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 export class GroupsComponent implements OnInit {
   groups: Observable<Group[]>;
   editingGroups = [];
-  displayedColumns = ['index', 'name', 'actions'];
+  displayedColumns = ['index', 'name', 'type', 'actions'];
 
   constructor(private groupsService: GroupsService, private dialog: MatDialog) {
   }
@@ -46,7 +46,7 @@ export class GroupsComponent implements OnInit {
 
   saveGroup(group) {
     this.groupsService.updateGroup(group);
-    this.editingGroups = this.editingGroups.filter(item => item.name !== group.name);
+    this.editingGroups = this.editingGroups.filter(item => item !== group);
   }
 
   deleteGroup(group) {

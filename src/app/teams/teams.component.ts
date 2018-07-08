@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Team, TeamsService } from '../shared/teams.service';
+import { Team, TeamsService } from './teams.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { MatDialog, MatDialogConfig } from '@angular/material';

@@ -23,10 +23,10 @@ import { NoAuthGuard } from './shared/no-auth.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { TeamsComponent } from './teams/teams.component';
 import { AdminGuard } from './shared/admin.guard';
-import { TeamsService } from './shared/teams.service';
+import { TeamsService } from './teams/teams.service';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { GroupsComponent } from './groups/groups.component';
-import { GroupsService } from './shared/groups.service';
+import { GroupsService } from './groups/groups.service';
 
 
 @NgModule({

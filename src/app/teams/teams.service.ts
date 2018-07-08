@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
-import { ToastService } from './toast.service';
+import { ToastService } from '../shared/toast.service';
 
 export class Team {
   $key: string;
