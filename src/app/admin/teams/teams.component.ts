@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { Group, GroupsService } from '../groups/groups.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-teams',
@@ -12,10 +14,14 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 })
 export class TeamsComponent implements OnInit {
   teams: Observable<Team[]>;
+  groups: Observable<Group[]>;
   editingTeams = [];
-  displayedColumns = ['index', 'name', 'actions'];
+  displayedColumns = ['index', 'name', 'group', 'actions'];
 
-  constructor(private teamsService: TeamsService, private dialog: MatDialog) {
+  constructor(
+    private teamsService: TeamsService,
+    private groupsService: GroupsService,
+    private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -28,12 +34,26 @@ export class TeamsComponent implements OnInit {
           return <Team>team;
         }));
       });
-
+    this.groups = this.groupsService.getGroups()
+      .snapshotChanges()
+      .pipe(
+        map(list => {
+          return list.map(item => {
+            const group = item.payload.toJSON();
+            group['$key'] = item.payload.key;
+            return <Group>group;
+          });
+        }),
+        map(list => {
+          return list.filter(item => item.type === 'group');
+        })
+      );
   }
 
   addTeam(teamName: string) {
     const team = new Team();
     team.name = teamName;
+    team.groupId = null;
     this.teamsService.createTeam(team);
   }
 

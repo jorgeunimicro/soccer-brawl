@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 import { AuthGuard } from './shared/auth.guard';
 import { NoAuthGuard } from './shared/no-auth.guard';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { TeamsComponent } from './teams/teams.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { TeamsComponent } from './admin/teams/teams.component';
 import { AdminGuard } from './shared/admin.guard';
-import { GroupsComponent } from './groups/groups.component';
+import { GroupsComponent } from './admin/groups/groups.component';
 
 export const appRoutes: Routes = [
   // { path: 'login', component: LoginComponent },

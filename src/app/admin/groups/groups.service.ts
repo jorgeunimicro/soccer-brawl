@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
-import { ToastService } from '../shared/toast.service';
+import { ToastService } from '../../shared/toast.service';
 
 export class Group {
   $key: string;
@@ -26,7 +26,7 @@ export class GroupsService {
     return this.groups;
   }
 
-  getTeam(group: Group): AngularFireObject<Group> {
+  getGroup(group: Group): AngularFireObject<Group> {
     const path = `${this.basepath}/${group.$key}`;
     this.group = this.db.object(path);
     return this.group;

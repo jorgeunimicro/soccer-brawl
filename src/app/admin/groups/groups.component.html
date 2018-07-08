@@ -42,7 +42,7 @@
   <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>
 <mat-form-field>
-  <input matInput placeholder="Add new team" type="text" class="form-control" #newTeam
-         (keydown.enter)="addGroup(newTeam.value); newTeam.value = '';">
+  <input matInput placeholder="Add new group" type="text" class="form-control" #newGroup
+         (keydown.enter)="addGroup(newGroup.value); newGroup.value = '';">
 </mat-form-field>
-<button mat-button mat-raised-button color="primary" (click)="addGroup(newTeam.value); newTeam.value = '';">Add Team</button>
+<button mat-button mat-raised-button color="primary" (click)="addGroup(newGroup.value); newGroup.value = '';">Add Group</button>

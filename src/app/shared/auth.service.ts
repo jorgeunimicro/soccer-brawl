@@ -5,7 +5,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { User } from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
+import { switchMap } from 'rxjs/operators';
 
 interface UserCredentials {
   name: string;
@@ -27,14 +27,9 @@ export class AuthService {
               private afs: AngularFirestore,
               private router: Router) {
 
-    this.user = this.afAuth.authState
-      .switchMap(user => {
-        if (user) {
-          return Observable.of(user);
-        } else {
-          return Observable.of(null);
-        }
-      });
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => user ?  Observable.of(user) : Observable.of(null))
+    );
   }
 
   registerUserWithEmailAndPassword(user: UserCredentials) {

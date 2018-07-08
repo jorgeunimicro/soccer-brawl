@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
-import { ToastService } from '../shared/toast.service';
+import { AuthService } from '../../shared/auth.service';
+import { ToastService } from '../../shared/toast.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 

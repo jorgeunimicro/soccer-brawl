@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { config, validations } from './register-user-form';
-import { AuthService } from '../shared/auth.service';
-import { ToastService } from '../shared/toast.service';
+import { AuthService } from '../../shared/auth.service';
+import { ToastService } from '../../shared/toast.service';
 import { Router } from '@angular/router';
 
 

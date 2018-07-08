@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
-import { ToastService } from '../shared/toast.service';
+import { ToastService } from '../../shared/toast.service';
 
 export class Team {
   $key: string;
   name: string;
+  groupId: string;
 }
 
 @Injectable()
@@ -40,7 +41,7 @@ export class TeamsService {
   }
 
   updateTeam(team: Team): void {
-    this.teams.update(team.$key, <Team>{ name: team.name})
+    this.teams.update(team.$key, <Team>{ name: team.name, groupId: team.groupId})
       .catch(error => this.toastr.open(error));
   }
 
