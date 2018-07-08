@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+  <p>¿Are you sure you want to delete {{data.itemDescription}}?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="accept(false)">Cancel</button>
+  <button mat-button mat-raised-button color="primary" (click)="accept(true)">Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+mat-form-field.mat-form-field {
+  display: block;
+}
+#registerCard {
+  width: 80vw;
+  margin: auto;
+  margin-top: 20vh;
+}
+mat-card-actions {
+  text-align: right;
+}
+#goToLogin, #goToRegister, #goToReset {
+  width: 80vw;
+  margin: auto;
+  margin-top: 1vh;
+  text-align: center;
+}
+button[color=red] {
+  background: #f00;
+  color: #fff;
+}

@@ -1,0 +1,29 @@
+<mat-card id="registerCard">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="material-icons">account_circle</i>
+    </div>
+    <mat-card-title>Register as user</mat-card-title>
+    <mat-card-subtitle>Insert your personal data</mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="userForm" (submit)="register()">
+    <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="Your name" type="text" class="form-control" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" type="email" class="form-control" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" class="form-control" formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Repeat Password" type="password" class="form-control" formControlName="matchPassword">
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button color="primary" mat-raised-button type="submit">Register</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+<p id="goToLogin">Do you have an account? <button color="primary" mat-raised-button routerLink="/login">Login</button></p>
