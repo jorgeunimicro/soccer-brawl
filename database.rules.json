@@ -1,6 +1,16 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "teams": {
+      ".read": "auth != null",
+      ".write": "auth.uid == 'OH1ddNK6tWXsLeuNqQtg9sCtXkh1'"
+    },
+    "groups": {
+      ".read": "auth != null",
+      ".write": "auth.uid == 'OH1ddNK6tWXsLeuNqQtg9sCtXkh1'"
+    },
+    "matches": {
+      ".read": "auth != null",
+      ".write": "auth.uid == 'OH1ddNK6tWXsLeuNqQtg9sCtXkh1'"
+    }
   }
 }

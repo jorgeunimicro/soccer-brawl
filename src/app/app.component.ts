@@ -1,8 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from './shared/auth.service';
-import { map, take, tap } from 'rxjs/operators';
 import {environment as env} from '../environments/environment';
-import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +9,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'Soccer-brawl app!';
+  title = 'Soccer Brawl';
   loggedIn = false;
   isAdmin = false;
   constructor(private auth: AuthService) {

@@ -58,7 +58,7 @@ export class GroupsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
-        this.groupsService.deleteTeam(group);
+        this.groupsService.deleteGroup(group);
       }
     });
   }

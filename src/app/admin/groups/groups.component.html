@@ -1,48 +1,50 @@
-<h1>Groups</h1>
-<mat-table [dataSource]="groups | async">
-  <ng-container matColumnDef="index">
-    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-    <mat-cell *matCellDef="let i = index">{{i+1}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <span *ngIf="!editing(element)">{{element.name}}</span>
-      <mat-form-field *ngIf="editing(element)">
-        <input matInput placeholder="Edit team name" type="text" class="form-control" [(ngModel)]="element.name">
-      </mat-form-field>
-    </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="type">
-    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <span *ngIf="!editing(element)">{{element.type}}</span>
-      <mat-form-field *ngIf="editing(element)">
-        <mat-select [(value)]="element.type">
-          <mat-option [value]="null">None</mat-option>
-          <mat-option value="group">Group</mat-option>
-          <mat-option value="top16">Top 16</mat-option>
-          <mat-option value="quaterfinal">Quater Final</mat-option>
-          <mat-option value="semifinal">Semi Final</mat-option>
-          <mat-option value="final">Final</mat-option>
-          <mat-option value="thirdfourth">3rd and 4th place</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <button mat-button mat-raised-button color="primary" (click)="editGroup(element)" *ngIf="!editing(element)">Edit</button>
-      <button mat-button mat-raised-button color="primary" (click)="saveGroup(element)" *ngIf="editing(element)">Save</button>
-      <button mat-button mat-raised-button color="red" (click)="deleteGroup(element)">Delete</button>
-    </mat-cell>
-  </ng-container>
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-</mat-table>
-<mat-form-field>
-  <input matInput placeholder="Add new group" type="text" class="form-control" #newGroup
-         (keydown.enter)="addGroup(newGroup.value); newGroup.value = '';">
-</mat-form-field>
-<button mat-button mat-raised-button color="primary" (click)="addGroup(newGroup.value); newGroup.value = '';">Add Group</button>
+<mat-card>
+  <mat-card-title>Groups</mat-card-title>
+  <mat-table [dataSource]="groups | async">
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let i = index">{{i+1}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span *ngIf="!editing(element)">{{element.name}}</span>
+        <mat-form-field *ngIf="editing(element)">
+          <input matInput placeholder="Edit team name" type="text" class="form-control" [(ngModel)]="element.name">
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span *ngIf="!editing(element)">{{element.type}}</span>
+        <mat-form-field *ngIf="editing(element)">
+          <mat-select [(value)]="element.type">
+            <mat-option [value]="null">None</mat-option>
+            <mat-option value="group">Group</mat-option>
+            <mat-option value="top16">Top 16</mat-option>
+            <mat-option value="quaterfinal">Quater Final</mat-option>
+            <mat-option value="semifinal">Semi Final</mat-option>
+            <mat-option value="final">Final</mat-option>
+            <mat-option value="thirdfourth">3rd and 4th place</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button mat-raised-button color="primary" (click)="editGroup(element)" *ngIf="!editing(element)">Edit</button>
+        <button mat-button mat-raised-button color="primary" (click)="saveGroup(element)" *ngIf="editing(element)">Save</button>
+        <button mat-button mat-raised-button color="warn" (click)="deleteGroup(element)">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-form-field>
+    <input matInput placeholder="Add new group" type="text" class="form-control" #newGroup
+           (keydown.enter)="addGroup(newGroup.value); newGroup.value = '';">
+  </mat-form-field>
+  <button mat-button mat-raised-button color="primary" (click)="addGroup(newGroup.value); newGroup.value = '';">Add Group</button>
+</mat-card>

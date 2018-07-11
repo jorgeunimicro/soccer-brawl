@@ -19,3 +19,8 @@ button[color=red] {
   background: #f00;
   color: #fff;
 }
+
+mat-cell {
+  vertical-align: middle;
+  padding: 1rem;
+}

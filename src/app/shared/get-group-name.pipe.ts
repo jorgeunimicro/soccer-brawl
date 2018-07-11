@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Group, GroupsService } from '../groups/groups.service';
+import { Group, GroupsService } from '../admin/groups/groups.service';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
 
 @Pipe({
   name: 'getGroupName'
@@ -12,6 +13,9 @@ export class GetGroupNamePipe implements PipeTransform {
   }
 
   transform(value: any, args?: any): any {
+    if (!value) {
+      return Observable.of(null);
+    }
     return this.groupsService.getGroup(<Group>{$key: value})
       .snapshotChanges()
       .pipe(

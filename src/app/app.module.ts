@@ -27,7 +27,10 @@ import { TeamsService } from './admin/teams/teams.service';
 import { DeleteDialogComponent } from './admin/delete-dialog/delete-dialog.component';
 import { GroupsComponent } from './admin/groups/groups.component';
 import { GroupsService } from './admin/groups/groups.service';
-import { GetGroupNamePipe } from './admin/teams/get-group-name.pipe';
+import { GetGroupNamePipe } from './shared/get-group-name.pipe';
+import { MatchesComponent } from './admin/matches/matches.component';
+import { MatchesService } from './admin/matches/matches.service';
+import { GetTeamNamePipe } from './admin/matches/get-team-name.pipe';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { GetGroupNamePipe } from './admin/teams/get-group-name.pipe';
     TeamsComponent,
     DeleteDialogComponent,
     GroupsComponent,
-    GetGroupNamePipe
+    GetGroupNamePipe,
+    MatchesComponent,
+    GetTeamNamePipe
   ],
   entryComponents: [
     DeleteDialogComponent
@@ -58,7 +63,7 @@ import { GetGroupNamePipe } from './admin/teams/get-group-name.pipe';
     AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService, ToastService, AuthGuard, NoAuthGuard, AdminGuard, TeamsService, GroupsService],
+  providers: [AuthService, ToastService, AuthGuard, NoAuthGuard, AdminGuard, TeamsService, GroupsService, MatchesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

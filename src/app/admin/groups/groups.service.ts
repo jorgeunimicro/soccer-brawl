@@ -13,8 +13,8 @@ export class GroupsService {
 
   private basepath = '/groups'
 
-  groups: AngularFireList<Group> = null;
-  group: AngularFireObject<Group> = null;
+  matches: AngularFireList<Group> = null;
+  match: AngularFireObject<Group> = null;
 
   constructor(
     private db: AngularFireDatabase,
@@ -22,34 +22,34 @@ export class GroupsService {
   ) { }
 
   getGroups(): AngularFireList<Group> {
-    this.groups = this.db.list<Group>(this.basepath);
-    return this.groups;
+    this.matches = this.db.list<Group>(this.basepath);
+    return this.matches;
   }
 
   getGroup(group: Group): AngularFireObject<Group> {
     const path = `${this.basepath}/${group.$key}`;
-    this.group = this.db.object(path);
-    return this.group;
+    this.match = this.db.object(path);
+    return this.match;
   }
 
   createGroup(group: Group): void {
     try {
-      this.groups.push(group);
+      this.matches.push(group);
     } catch (e) {
       this.toastr.open(e);
     }
   }
 
   updateGroup(group: Group): void {
-    this.groups.update(group.$key, <Group>{
+    this.matches.update(group.$key, <Group>{
       name: group.name,
       type: group.type
     })
       .catch(error => this.toastr.open(error));
   }
 
-  deleteTeam(group: Group): void {
-    this.groups.remove(group.$key)
+  deleteGroup(group: Group): void {
+    this.matches.remove(group.$key)
       .catch(error => this.toastr.open(error));
   }
 }

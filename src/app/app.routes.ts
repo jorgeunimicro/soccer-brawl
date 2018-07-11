@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { TeamsComponent } from './admin/teams/teams.component';
 import { AdminGuard } from './shared/admin.guard';
 import { GroupsComponent } from './admin/groups/groups.component';
+import { MatchesComponent } from './admin/matches/matches.component';
 
 export const appRoutes: Routes = [
   // { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ export const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'admin/teams', component: TeamsComponent, canActivate: [AdminGuard] },
   { path: 'admin/groups', component: GroupsComponent, canActivate: [AdminGuard] },
+  { path: 'admin/matches', component: MatchesComponent, canActivate: [AdminGuard] },
   { path: '',
     redirectTo: '/profile',
     pathMatch: 'full'
